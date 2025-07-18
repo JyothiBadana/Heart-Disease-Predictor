@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Heart Disease Prediction</h1>
+    <form method="POST" action="/predict">
+        {% for i in range(13) %}
+            <label>Feature {{ i + 1 }}:</label>
+            <input type="text" name="f{{ i }}" required><br><br>
+        {% endfor %}
+        <button type="submit">Predict</button>
+    </form>
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
